@@ -14,6 +14,7 @@
 		DA6662E9213D18A0000BAEB2 /* fix_demo_03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6662E8213D18A0000BAEB2 /* fix_demo_03Tests.swift */; };
 		DA6662F4213D18A0000BAEB2 /* fix_demo_03UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6662F3213D18A0000BAEB2 /* fix_demo_03UITests.swift */; };
 		DA666302213D1A25000BAEB2 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA666301213D1A25000BAEB2 /* NowPlayingViewController.swift */; };
+		DA666304213DCBEE000BAEB2 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA666303213DCBEE000BAEB2 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		DA6662F3213D18A0000BAEB2 /* fix_demo_03UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fix_demo_03UITests.swift; sourceTree = "<group>"; };
 		DA6662F5213D18A0000BAEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA666301213D1A25000BAEB2 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		DA666303213DCBEE000BAEB2 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				DA6662DA213D18A0000BAEB2 /* Assets.xcassets */,
 				DA6662DC213D18A0000BAEB2 /* LaunchScreen.storyboard */,
 				DA6662DF213D18A0000BAEB2 /* Info.plist */,
+				DA666303213DCBEE000BAEB2 /* MovieCell.swift */,
 			);
 			path = fix_demo_03;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				DA666302213D1A25000BAEB2 /* NowPlayingViewController.swift in Sources */,
 				DA6662D4213D189F000BAEB2 /* AppDelegate.swift in Sources */,
+				DA666304213DCBEE000BAEB2 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
