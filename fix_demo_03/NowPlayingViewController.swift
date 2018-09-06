@@ -47,6 +47,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         self.present(alertController, animated: true){
             //exit(0)
             
+            self.activityindicator.stopAnimating()
+            
         }
 
     }
