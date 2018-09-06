@@ -16,11 +16,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     var movies: [[String:Any]] = []
     var refreshControl: UIRefreshControl!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         refreshControl = UIRefreshControl()
-        //refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
@@ -35,6 +35,21 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    func wifiAlarm (title: String = "Cannot Get Movies" , message:String = "The Internet connetion appears to be offline."){
+        let alertController = UIAlertController(title: title, message: message
+            , preferredStyle: UIAlertControllerStyle.alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil)
+        alertController.addAction(dismissAction)
+        
+        self.present(alertController, animated: true){
+            //exit(0)
+            
+        }
+
+    }
+    
+    
+    
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
         fectchMovies()
     }
@@ -48,6 +63,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             // This will run when the network request returns
             if let error = error{
                 print(error.localizedDescription)
+                self.wifiAlarm()
             }else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 let movies = dataDictionary["results"] as! [[String:Any]]
