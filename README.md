@@ -4,7 +4,7 @@
 
 **Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -17,7 +17,7 @@ The following **required** user stories are complete:
 
 The following **stretch** user stories are implemented:
 
-- [ ] User sees an alert when there's a networking error (+1pt)
+- [x] User sees an alert when there's a networking error (+1pt)
 - [ ] User can search for a movie (+3pt)
 - [ ] While poster is being fetched, user see's a placeholder image (+1pt)
 - [ ] User sees image transition for images coming from network, not when it is loaded from cache (+1pt)
@@ -37,7 +37,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/paulpowang/codepath_week1_fix_demo03/blob/master/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/paulpowang/codepath_week1_fix_demo03/blob/master/fix_demo_02.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
