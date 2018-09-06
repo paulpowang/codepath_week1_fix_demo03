@@ -11,6 +11,7 @@ import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var movies: [[String:Any]] = []
@@ -19,6 +20,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityindicator.startAnimating()
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
@@ -30,6 +32,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         tableView.rowHeight = 200
 
         // Do any additional setup after loading the view.
+        
         fectchMovies()
         
         
@@ -70,6 +73,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.activityindicator.stopAnimating()
                 
             }
         }
