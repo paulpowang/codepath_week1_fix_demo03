@@ -41,7 +41,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     func wifiAlarm (title: String = "Cannot Get Movies" , message:String = "The Internet connetion appears to be offline."){
         let alertController = UIAlertController(title: title, message: message
             , preferredStyle: UIAlertControllerStyle.alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default){(action) in
+            self.fectchMovies()
+        }
         alertController.addAction(dismissAction)
         
         self.present(alertController, animated: true){
