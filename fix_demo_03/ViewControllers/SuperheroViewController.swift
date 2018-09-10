@@ -14,6 +14,12 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
     
     var movies: [[String: Any]] = []
     
+    var refreshControl: UIRefreshControl!
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fectchMovies()
+    }
+    
     
     
     
@@ -31,6 +37,11 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
         let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / (cellsPerLine - 1)
         layout.itemSize = CGSize(width: width, height: width * 3/2)
+        
+        //refresh view
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(SuperheroViewController.didPullToRefresh(_:)), for: .valueChanged)
+        collectionView.insertSubview(refreshControl, at: 0)
         
         fectchMovies()
     }
@@ -65,7 +76,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
                 let movies = dataDictionary["results"] as! [[String:Any]]
                 self.movies = movies
                 self.collectionView.reloadData()
-                //self.refreshControl.endRefreshing()
+                self.refreshControl.endRefreshing()
                 //self.activityindicator.stopAnimating()
                 
             }
