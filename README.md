@@ -71,7 +71,8 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+- [x] Add Pull Refresh in SuperHero Collection View
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -82,7 +83,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/paulpowang/codepath_week1_fix_demo03/blob/master/fix_demo_week2_02.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/paulpowang/codepath_week1_fix_demo03/blob/master/fix_demo_week2_03.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
