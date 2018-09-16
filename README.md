@@ -91,6 +91,46 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 The walkthough video is very easy to follow in this project. 
 
+# Lab 3 - *Fix Movie List*
+
+**Fix Movie List** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+
+Time spent: **3** hours spent in total
+
+## User Stories
+
+The following **required** user stories are complete:
+
+- The following screens use AutoLayout to adapt to various orientations and screen sizes
+   - [x] Movie feed view (+3pt)
+   - [x] Detail view (+2pt)
+
+The following **stretch** user stories are implemented:
+
+- [x] Dynamic Height Cells (+1)
+- [x] Collection View AutoLayout (+2)
+
+The following **additional** user stories are implemented:
+
+- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+
+1. there is some issue on the backdrop image that i cannot expand it. 
+2. for the milestone 6, I didn't notice any changes after I add edge constraint to it. 
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://github.com/paulpowang/codepath_week1_fix_demo03/blob/master/fix_demo_week3_01.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Overall is ok to setup constraints.
+
 
 ## License
 
