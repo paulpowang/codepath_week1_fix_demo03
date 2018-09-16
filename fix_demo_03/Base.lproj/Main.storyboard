@@ -235,12 +235,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="138" height="211"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KMH-0p-x14">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMH-0p-x14">
                                                     <rect key="frame" x="0.0" y="0.0" width="138" height="211"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="KMH-0p-x14" firstAttribute="top" secondItem="Xny-jx-wHi" secondAttribute="top" id="CTV-KR-Cdu"/>
+                                            <constraint firstAttribute="bottom" secondItem="KMH-0p-x14" secondAttribute="bottom" id="b2y-af-A7I"/>
+                                            <constraint firstItem="KMH-0p-x14" firstAttribute="leading" secondItem="Xny-jx-wHi" secondAttribute="leading" id="bT4-Xi-n8T"/>
+                                            <constraint firstAttribute="trailing" secondItem="KMH-0p-x14" secondAttribute="trailing" id="fLv-OQ-S3w"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="posterImageView" destination="KMH-0p-x14" id="CLS-g7-l3f"/>
                                             <segue destination="4yw-C8-Pke" kind="show" id="zNA-5o-ftq"/>
@@ -286,6 +291,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4MX-Hl-XCH"/>
+        <segue reference="zNA-5o-ftq"/>
     </inferredMetricsTieBreakers>
 </document>
