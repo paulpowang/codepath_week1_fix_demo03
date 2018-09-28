@@ -12,7 +12,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var movies: [[String: Any]] = []
+    var movies: [Movie] = []
     
     var refreshControl: UIRefreshControl!
     
@@ -51,16 +51,20 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
+        /*
         let movie = movies[indexPath.item]
-        if let posterPathString = movie["poster_path"] as? String{
+        if let posterPathString = movie.posterUrl as? String{
             let baseURLString = "https://image.tmdb.org/t/p/w500"
             let posterURL = URL(string: baseURLString + posterPathString)!
             cell.posterImageView.af_setImage(withURL: posterURL)
-        }
+        }*/
+        cell.movie = movies[indexPath.row]
         return cell
     }
     
+    /*
     func fectchMovies(){
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
@@ -82,6 +86,17 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
             }
         }
         task.resume()
+    }*/
+    
+    func fectchMovies() {
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.collectionView.reloadData()
+                self.refreshControl.endRefreshing()
+                
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

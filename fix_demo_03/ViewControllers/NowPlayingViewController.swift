@@ -14,7 +14,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
-    var movies: [[String:Any]] = []
+    //change to Movie class here
+    //var movies: [[String:Any]] = []
+    var movies: [Movie] = []
     var refreshControl: UIRefreshControl!
     
     
@@ -59,7 +61,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
         fectchMovies()
     }
-    
+    /*
     func fectchMovies(){
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
@@ -71,22 +73,48 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 print(error.localizedDescription)
                 self.wifiAlarm()
             }else if let data = data {
+                /*
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 let movies = dataDictionary["results"] as! [[String:Any]]
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityindicator.stopAnimating()
+ */
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
+                
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
                 
             }
         }
         task.resume()
+    }*/
+    
+    func fectchMovies(){
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityindicator.stopAnimating()
+            }else if let error = error{
+                print(error.localizedDescription)
+                self.wifiAlarm()
+            }
+        }
     }
+ 
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-    
+    /*
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
@@ -103,6 +131,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         cell.posterimageView.af_setImage(withURL: posterURL)
         
         return cell
+    }*/
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        
+        cell.movie = movies[indexPath.row]
+        
+        return cell
     }
     
     
@@ -112,6 +149,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             let movie = movies[indexPath.row]
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.movie = movie
+            
         }
         
         
