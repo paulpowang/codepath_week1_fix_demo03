@@ -35,15 +35,26 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
         // Do any additional setup after loading the view.
         
-        fectchMovies()
+        fectchNowPlayingMovies()
         
     }
+    
+    
+    @IBAction func nowPlaying(_ sender: Any) {
+        fectchNowPlayingMovies()
+    }
+    
+    @IBAction func popularMovie(_ sender: Any) {
+        fectchPopularMovies()
+    }
+    
+    
     
     func wifiAlarm (title: String = "Cannot Get Movies" , message:String = "The Internet connetion appears to be offline."){
         let alertController = UIAlertController(title: title, message: message
             , preferredStyle: UIAlertControllerStyle.alert)
         let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default){(action) in
-            self.fectchMovies()
+            self.fectchNowPlayingMovies()
         }
         alertController.addAction(dismissAction)
         
@@ -59,7 +70,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
-        fectchMovies()
+        fectchNowPlayingMovies()
     }
     /*
     func fectchMovies(){
@@ -95,8 +106,22 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         task.resume()
     }*/
     
-    func fectchMovies(){
+    func fectchNowPlayingMovies(){
         MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityindicator.stopAnimating()
+            }else if let error = error{
+                print(error.localizedDescription)
+                self.wifiAlarm()
+            }
+        }
+    }
+    
+    func fectchPopularMovies(){
+        MovieApiManager().getPopularMovies { (movies: [Movie]?, error: Error?) in
             if let movies = movies {
                 self.movies = movies
                 self.tableView.reloadData()

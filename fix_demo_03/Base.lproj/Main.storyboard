@@ -85,7 +85,18 @@
                         <color key="backgroundColor" red="0.07601538042994016" green="0.16887217504298724" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Now Playing" id="Yui-IV-zgn"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="Yui-IV-zgn">
+                        <barButtonItem key="leftBarButtonItem" title="NowPlaying" id="eQj-nc-TLR">
+                            <connections>
+                                <action selector="nowPlaying:" destination="BYZ-38-t0r" id="gX6-Yq-xTg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Popular" id="yM8-ed-c06">
+                            <connections>
+                                <action selector="popularMovie:" destination="BYZ-38-t0r" id="LTF-ki-fGF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityindicator" destination="s7F-ka-A8X" id="qk8-r1-YVm"/>
                         <outlet property="tableView" destination="cvp-Jq-FlK" id="kOL-Hu-hQy"/>
